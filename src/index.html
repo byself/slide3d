@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡3d切换</title>
+
+    <style>
+        .slide3d{
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            height: 400px;
+        }
+
+        .slide3d .tabItems{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+            perspective: 600px;
+            /*transform-style: preserve-3d;*/
+        }
+
+        .slide3d .card{
+            position:absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #000;
+            transition: 1s;
+        }
+
+        .slide3d .card img{
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 6px rgba(0,0,0,.5);
+        }
+
+        .slide3d .prev,
+        .slide3d .next{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            background-color: rgba(204,165,73,0.86);
+        }
+
+        .slide3d .prev{
+            left: 12px;
+        }
+
+        .slide3d .next{
+            right: 12px;
+        }
+
+        .slide3d .prev::before,
+        .slide3d .next::before{
+            display:block;
+            height: 100%;
+            font-family: icomoon;
+            color: #fff;
+            line-height: 30px;
+        }
+
+        .slide3d .prev::before{
+            content: '\f104';
+        }
+
+        .slide3d .next::before{
+            content: '\f105';
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="slide3d" id="slide3d">
+    <div class="tabItems">
+        <!--<div class="card" style="padding:50px;transform:rotateY(60deg) translateZ(-330px);">-->
+            <!--<img src="1.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="card" style="z-index:9;transform:rotateY(0deg) translateZ(-120px);">-->
+            <!--<img src="1.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="card" style="padding: 50px;transform:rotateY(-60deg) translateZ(-330px);">-->
+            <!--<img src="1.jpg" alt="">-->
+        <!--</div>-->
+
+        <div class="card" style="z-index:0;padding:50px;transform:rotateY(60deg) translateZ(-330px);opacity:1;">
+            <img src="1.jpg" alt="">0
+        </div>
+        <div class="card" style="z-index:9;padding: 0;transform:rotateY(0deg) translateZ(-120px);opacity:1;">
+            <img src="1.jpg" alt="">1
+        </div>
+        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity:1;">
+            <img src="1.jpg" alt="">2
+        </div>
+        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity: 0;">
+            <img src="1.jpg" alt="">3
+        </div>
+        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity: 0;">
+            <img src="1.jpg" alt="">4
+        </div>
+    </div>
+    <a class="prev" href="javascript:void(0)"></a>
+    <a class="next" href="javascript:void(0)"></a>
+</div>
+
+
+<script src="jquery.min.js"></script>
+<script>
+
+    function textSlide(){
+        var $box = $("#slide3d");
+        var $stage = $(".tabItems", $box);
+        var $prev = $(".prev", $box);
+        var $next = $(".next", $box);
+        var $cards = $(".card", $box);
+
+        var cardNumber = $cards.length;
+
+        // 当前展示元素索引，从0开始
+        var currentIndex = 1;
+
+        var $prevPrevCard;
+        var $prevCard;
+        var $card;
+        var $nextCard;
+        var $nextNextCard;
+
+        var timer = null;
+
+        // 滚动速度
+        var speed = 1000;
+
+        //动画间隔时间
+        var duration = 2000;
+
+        var css = [
+            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-330px)","opacity": 0},
+            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-330px)","opacity": 1},
+            {"z-index":9,"padding":"0","transform":"rotateY(0deg) translateZ(-120px)","opacity": 1},
+            {"z-index":2,"padding": "50px","transform":"rotateY(-60deg) translateZ(-330px)","opacity": 1},
+            {"z-index":0,"padding": "50px","transform":"rotateY(-60deg) translateZ(-330px)","opacity": 0}
+        ];
+
+        var prev = function(){
+
+            if(currentIndex === 1){
+                $prevPrevCard = $cards.eq(cardNumber - 1);
+                $prevCard = $cards.eq(currentIndex - 1);
+            }else if(currentIndex === 0){
+                $prevPrevCard = $cards.eq(cardNumber - 2);
+                $prevCard = $cards.eq(cardNumber - 1);
+            }else{
+                $prevPrevCard = $cards.eq(currentIndex - 2);
+                $prevCard = $cards.eq(currentIndex - 1);
+            }
+
+            $card = $cards.eq(currentIndex);
+
+            if(currentIndex === 4){
+                $nextCard = $cards.eq(0);
+            }else{
+                $nextCard = $cards.eq(currentIndex + 1);
+            }
+
+
+            $prevPrevCard.css(css[1]);
+            $prevCard.css(css[2]);
+            $card.css(css[3]);
+            $nextCard.css(css[4]);
+
+            currentIndex--;
+
+            if(currentIndex < 0){
+                currentIndex = cardNumber - 1;
+            }
+        };
+
+        var next = function(){
+
+
+            if(currentIndex === 0){
+                $prevCard = $cards.eq(cardNumber - 1);
+            }else{
+                $prevCard = $cards.eq(currentIndex - 1);
+            }
+
+            $card = $cards.eq(currentIndex);
+
+            if(currentIndex === 3){
+                $nextCard = $cards.eq(currentIndex + 1);
+                $nextNextCard = $cards.eq(0);
+            }else if(currentIndex === 4){
+                $nextCard = $cards.eq(0);
+                $nextNextCard = $cards.eq(1);
+            }else{
+                $nextCard = $cards.eq(currentIndex + 1);
+                $nextNextCard = $cards.eq(currentIndex + 2);
+            }
+
+
+            $prevCard.css(css[0]);
+            $card.css(css[1]);
+            $nextCard.css(css[2]);
+            $nextNextCard.css(css[3]);
+
+            currentIndex++;
+
+            if(currentIndex === cardNumber){
+                currentIndex = 0;
+            }
+
+        };
+
+        var autoplay = function(){
+            timer = setInterval(next, duration)
+        };
+
+        // auto
+        autoplay();
+
+        // bind
+        $prev.off("click").on("click", function () {
+            clearInterval(timer);
+            next();
+            autoplay();
+        });
+
+        $next.off("click").on("click", function () {
+            clearInterval(timer);
+            prev();
+            autoplay();
+        });
+
+    }
+
+    $(function(){
+        textSlide();
+    })
+
+</script>
+
+</body>
+</html>
