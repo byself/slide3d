@@ -6,11 +6,28 @@
 
     <style>
         .slide3d{
-            position: relative;
             margin-left: auto;
             margin-right: auto;
-            width: 600px;
+            width: 1100px;
             height: 400px;
+        }
+
+        .slide3d-l{
+            position: relative;
+            float: left;
+            margin-top: 50px;
+            margin-right: 5%;
+            width: 45%;
+            height: 400px;
+        }
+
+        .slide3d-r{
+            position: relative;
+            float: left;
+            margin: 0 10%;
+            width: 30%;
+            height: 400px;
+
         }
 
         .slide3d .tabItems{
@@ -76,41 +93,90 @@
             content: '\f105';
         }
 
+        .slide3d .tabTxt a{
+            display: block;
+            margin-top: 50px;
+            width: 116px;
+            height: 44px;
+            text-align: center;
+            line-height: 44px;
+            font-size: 14px;
+            color: #999;
+            border: 1px solid #999;
+            text-decoration: none;
+        }
+
+        .slide3d .tabTxt a:hover{
+            background-color: #b2930a;
+            color: #fff;
+            border-color: #b2930a;
+        }
+
+        .slide3d .tabTxtItem{
+            display: none;
+        }
+
     </style>
 
 </head>
 <body>
 
 <div class="slide3d" id="slide3d">
-    <div class="tabItems">
-        <!--<div class="card" style="padding:50px;transform:rotateY(60deg) translateZ(-330px);">-->
-            <!--<img src="1.jpg" alt="">-->
-        <!--</div>-->
-        <!--<div class="card" style="z-index:9;transform:rotateY(0deg) translateZ(-120px);">-->
-            <!--<img src="1.jpg" alt="">-->
-        <!--</div>-->
-        <!--<div class="card" style="padding: 50px;transform:rotateY(-60deg) translateZ(-330px);">-->
-            <!--<img src="1.jpg" alt="">-->
-        <!--</div>-->
-
-        <div class="card" style="z-index:0;padding:50px;transform:rotateY(60deg) translateZ(-330px);opacity:1;">
-            <img src="1.jpg" alt="">0
-        </div>
-        <div class="card" style="z-index:9;padding: 0;transform:rotateY(0deg) translateZ(-120px);opacity:1;">
-            <img src="1.jpg" alt="">1
-        </div>
-        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity:1;">
-            <img src="1.jpg" alt="">2
-        </div>
-        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity: 0;">
-            <img src="1.jpg" alt="">3
-        </div>
-        <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-330px);opacity: 0;">
-            <img src="1.jpg" alt="">4
+    <div class="slide3d-l">
+        <div class="tabTxt">
+            <div class="tabTxtItem" style="display: block;">
+                <h2>金鼎置业（上海）有限公司0</h2>
+                <p>金顶置业（上海）有限公司中国区总部设于国际金融之都上海，在厦门、成都、重庆、青岛、福州、广州等城市均设有办事处。金顶置业是一家专业从事海外房地产开发和项目营销管理的大型一站式权威服务机构，也是一家专业提供基金和资产管理服务、移民留学服务的品牌服务商。</p>
+                <p><strong>中国总部：上海市黄浦区中山东二路558号外滩金融中心N1栋11楼</strong></p>
+                <a href="">了解详情</a>
+            </div>
+            <div class="tabTxtItem">
+                <h2>金鼎置业（上海）有限公司1</h2>
+                <p>金顶置业（上海）有限公司中国区总部设于国际金融之都上海，在厦门、成都、重庆、青岛、福州、广州等城市均设有办事处。金顶置业是一家专业从事海外房地产开发和项目营销管理的大型一站式权威服务机构，也是一家专业提供基金和资产管理服务、移民留学服务的品牌服务商。</p>
+                <p><strong>中国总部：上海市黄浦区中山东二路558号外滩金融中心N1栋11楼</strong></p>
+                <a href="">了解详情</a>
+            </div>
+            <div class="tabTxtItem">
+                <h2>金鼎置业（上海）有限公司2</h2>
+                <p>金顶置业（上海）有限公司中国区总部设于国际金融之都上海，在厦门、成都、重庆、青岛、福州、广州等城市均设有办事处。金顶置业是一家专业从事海外房地产开发和项目营销管理的大型一站式权威服务机构，也是一家专业提供基金和资产管理服务、移民留学服务的品牌服务商。</p>
+                <p><strong>中国总部：上海市黄浦区中山东二路558号外滩金融中心N1栋11楼</strong></p>
+                <a href="">了解详情</a>
+            </div>
+            <div class="tabTxtItem">
+                <h2>金鼎置业（上海）有限公司3</h2>
+                <p>金顶置业（上海）有限公司中国区总部设于国际金融之都上海，在厦门、成都、重庆、青岛、福州、广州等城市均设有办事处。金顶置业是一家专业从事海外房地产开发和项目营销管理的大型一站式权威服务机构，也是一家专业提供基金和资产管理服务、移民留学服务的品牌服务商。</p>
+                <p><strong>中国总部：上海市黄浦区中山东二路558号外滩金融中心N1栋11楼</strong></p>
+                <a href="">了解详情</a>
+            </div>
+            <div class="tabTxtItem">
+                <h2>金鼎置业（上海）有限公司4</h2>
+                <p>金顶置业（上海）有限公司中国区总部设于国际金融之都上海，在厦门、成都、重庆、青岛、福州、广州等城市均设有办事处。金顶置业是一家专业从事海外房地产开发和项目营销管理的大型一站式权威服务机构，也是一家专业提供基金和资产管理服务、移民留学服务的品牌服务商。</p>
+                <p><strong>中国总部：上海市黄浦区中山东二路558号外滩金融中心N1栋11楼</strong></p>
+                <a href="">了解详情</a>
+            </div>
         </div>
     </div>
-    <a class="prev" href="javascript:void(0)"></a>
-    <a class="next" href="javascript:void(0)"></a>
+    <div class="slide3d-r">
+        <div class="tabItems">
+            <div class="card" style="z-index:0;padding:50px;transform:rotateY(60deg) translateZ(-220px);opacity:1;">
+                <img src="1.jpg" alt="">0
+            </div>
+            <div class="card" style="z-index:9;padding: 0;transform:rotateY(0deg) translateZ(-120px);opacity:1;">
+                <img src="1.jpg" alt="">1
+            </div>
+            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity:1;">
+                <img src="1.jpg" alt="">2
+            </div>
+            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity: 0;">
+                <img src="1.jpg" alt="">3
+            </div>
+            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity: 0;">
+                <img src="1.jpg" alt="">4
+            </div>
+        </div>
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
 </div>
 
 
@@ -119,7 +185,7 @@
 
     function textSlide(){
         var $box = $("#slide3d");
-        var $stage = $(".tabItems", $box);
+        var $tabTxt = $(".tabTxt", $box);
         var $prev = $(".prev", $box);
         var $next = $(".next", $box);
         var $cards = $(".card", $box);
@@ -144,12 +210,16 @@
         var duration = 2000;
 
         var css = [
-            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-330px)","opacity": 0},
-            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-330px)","opacity": 1},
+            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-220px)","opacity": 0},
+            {"z-index":1,"padding":"50px","transform":"rotateY(60deg) translateZ(-220px)","opacity": 1},
             {"z-index":9,"padding":"0","transform":"rotateY(0deg) translateZ(-120px)","opacity": 1},
-            {"z-index":2,"padding": "50px","transform":"rotateY(-60deg) translateZ(-330px)","opacity": 1},
-            {"z-index":0,"padding": "50px","transform":"rotateY(-60deg) translateZ(-330px)","opacity": 0}
+            {"z-index":2,"padding": "50px","transform":"rotateY(-60deg) translateZ(-220px)","opacity": 1},
+            {"z-index":0,"padding": "50px","transform":"rotateY(-60deg) translateZ(-220px)","opacity": 0}
         ];
+
+        var showTxt = function(index){
+            $tabTxt.find(".tabTxtItem").eq(index).show().siblings().hide();
+        }
 
         var prev = function(){
 
@@ -183,6 +253,8 @@
             if(currentIndex < 0){
                 currentIndex = cardNumber - 1;
             }
+
+            showTxt(currentIndex);
         };
 
         var next = function(){
@@ -219,6 +291,8 @@
                 currentIndex = 0;
             }
 
+            showTxt(currentIndex);
+
         };
 
         var autoplay = function(){
@@ -226,7 +300,7 @@
         };
 
         // auto
-        autoplay();
+        // autoplay();
 
         // bind
         $prev.off("click").on("click", function () {
