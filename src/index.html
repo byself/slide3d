@@ -173,19 +173,19 @@
     </div>
     <div class="slide3d-r">
         <div class="tabItems">
-            <div class="card" style="z-index:0;padding:50px;transform:rotateY(60deg) translateZ(-220px);opacity:1;">
+            <div class="card" style="z-index:9;padding: 0;transform:rotateY(0deg) translateZ(-120px);opacity:1;">
                 <img src="1.jpg" alt="">0
             </div>
-            <div class="card" style="z-index:9;padding: 0;transform:rotateY(0deg) translateZ(-120px);opacity:1;">
+            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity:1;">
                 <img src="1.jpg" alt="">1
             </div>
-            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity:1;">
+            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity: 0;">
                 <img src="1.jpg" alt="">2
             </div>
             <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity: 0;">
                 <img src="1.jpg" alt="">3
             </div>
-            <div class="card" style="z-index:0;padding: 50px;transform:rotateY(-60deg) translateZ(-220px);opacity: 0;">
+            <div class="card" style="z-index:0;padding:50px;transform:rotateY(60deg) translateZ(-220px);opacity:1;">
                 <img src="1.jpg" alt="">4
             </div>
         </div>
@@ -208,7 +208,7 @@
         var cardNumber = $cards.length;
 
         // 当前展示元素索引，从0开始
-        var currentIndex = 1;
+        var currentIndex = 0;
 
         var $prevPrevCard;
         var $prevCard;
@@ -222,7 +222,7 @@
         var speed = 1000;
 
         //动画间隔时间
-        var duration = 2000;
+        var duration = 5000;
 
         var css = [
             {
@@ -360,7 +360,7 @@
         };
 
         // auto
-        // autoplay();
+        autoplay();
 
         // bind
         $prev.off("click").on("click", function () {
